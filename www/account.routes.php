@@ -9,12 +9,12 @@ function user_add()
 {
 	echo "User addition is not implemented";
 }
-function user_view($id)
+function user_view($id, $id2, $id3, $id4)
 {
-	echo "User $id";
+	echo "User $id : $id2 - $id3 + $id4";
 }
   
 $r->get('^\/user(\/?)$', 'user_list');
 $r->get('^\/user\/add$', 'user_add');
-$r->get('^\/user\/(\d+)$', 'user_view');
+$r->get('^\/user\/(\d+)\/(\d+)\/(\d+)\/(\d+)$', 'user_view');
 ?>

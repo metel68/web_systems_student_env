@@ -50,8 +50,12 @@ class Router {
         // вызываем callback
         if (count($matches)>1)
         {
-			
-			call_user_func_array($callback,$matches[1]);
+			$i=0;
+			for ($i;$i<count($matches)-1;$i++)
+			{
+				$args[$i] = $matches[$i+1][0];
+			}
+			call_user_func_array($callback,$args);
 		}
 		else
 		{
