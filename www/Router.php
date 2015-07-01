@@ -51,7 +51,7 @@ class Router {
         if (count($matches)>1)
         {
 			
-			$callback($matches[1]);
+			call_user_func_array($callback,$matches[1]);
 		}
 		else
 		{

@@ -11,7 +11,7 @@ function user_add()
 }
 function user_view($id)
 {
-	echo "User $id[0]";
+	echo "User $id";
 }
   
 $r->get('^\/user(\/?)$', 'user_list');
