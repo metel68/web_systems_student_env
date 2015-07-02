@@ -1,24 +1,22 @@
 <?php
 require_once "Router.php";
 $r = Router::Instance();
-function user_list($data)
+function user_list(&$data)
 {
-	global $Fenom;
 	$data['Title'] = 'Главная';
 	$data['var'] = 'Crab<br>';
+	$data["page"] = "index.html";
 	$i=0;
 	for ($i;$i<6;$i++)
 	{
 		$data["var"].=$data["var"];
 	}
-	
-	$Fenom -> display('index.html', $data);
 }
-function user_add()
+function user_add(&$data)
 {
 	echo "User addition is not implemented";
 }
-function user_view($id)
+function user_view(&$data,$id)
 {
 	echo "User $id";
 }

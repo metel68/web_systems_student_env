@@ -1,11 +1,10 @@
 <?php
 $r = Router::Instance();
-function home($data)
+function home(&$data)
 {
-	global $Fenom;
 	$data["Title"]="Главная";
 	$data["var"]="Хрень или не хрень, вот в чем вопрос...";
-	$Fenom -> display('index.html', $data);
+	$data["page"] = "index.html";
 }
 
 $r->get('^\/$', 'home');
