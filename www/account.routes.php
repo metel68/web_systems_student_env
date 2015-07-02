@@ -1,7 +1,7 @@
 <?php
 require_once "Router.php";
 $r = Router::Instance();
-function user_list(&$data)
+function user_list($data)
 {
 	$data['Title'] = 'Главная';
 	$data['var'] = 'Crab<br>';
@@ -11,14 +11,17 @@ function user_list(&$data)
 	{
 		$data["var"].=$data["var"];
 	}
+	return $data;
 }
-function user_add(&$data)
+function user_add($data)
 {
 	echo "User addition is not implemented";
+	return $data;
 }
-function user_view(&$data,$id)
+function user_view($data,$id)
 {
 	echo "User $id";
+	return $data;
 }
   
 $r->get('^\/user(\/?)$', 'user_list');
