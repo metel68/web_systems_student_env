@@ -1,8 +1,11 @@
 <?php
 $r = Router::Instance();
-function home()
+function home($data)
 {
-	echo "Tipa home";
+	global $Fenom;
+	$data["Title"]="Главная";
+	$data["var"]="Хрень или не хрень, вот в чем вопрос...";
+	$Fenom -> display('index.html', $data);
 }
 
 $r->get('^\/$', 'home');
