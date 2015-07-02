@@ -1,10 +1,11 @@
 <?php
+require_once 'index.php';
 $r = Router::Instance();
 function home($data)
 {
+	$Fenom = initTemplate();
 	$data["Title"]="Главная";
-	$data["var"]="Хрень или не хрень, вот в чем вопрос...";
-	$data["page"] = "index.html";
+	$data["var"]=$Fenom -> fetch('home.html', $data);
 	return $data;
 }
 

@@ -1,11 +1,10 @@
 <?php
-require_once "Router.php";
+require_once 'index.php';
 $r = Router::Instance();
 function user_list($data)
 {
 	$data['Title'] = 'Главная';
 	$data['var'] = 'Crab<br>';
-	$data["page"] = "index.html";
 	$i=0;
 	for ($i;$i<6;$i++)
 	{
