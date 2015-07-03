@@ -10,7 +10,7 @@ function initTemplate()
 }
 	$Fenom = initTemplate();
 	$r = Router::Instance();
-	$menu = array('home'=>'Home','user'=>'Users list', 'user/add'=>'Add user', "logout" => 'Log out', "user/del" => "<font color='red'>Exterminatus</font>");
+	$menu = array('home'=>'Home','user'=>'Users list', 'user/add'=>'Add user', "logout" => 'Log out');
 	preg_match("^[a-zA-Z\s]+$^",$_SERVER['REQUEST_URI'],$url);
 	$data = array(
 		'Title' => '404',

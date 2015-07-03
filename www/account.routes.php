@@ -60,27 +60,41 @@ function user_reg($data)
 $users=unserialize(file_get_contents('users.lst'));
 $Fenom = initTemplate();
 $data["Title"]="Регистрация";
-if ($_POST["passwd"] == $_POST["cpasswd"])
+$loginok=true;
+foreach ($users as $user)
 {
-	if (!isset($users["count"])) {
-		$users["count"] = 1;
+	if ($_POST["name"] == $user["name"])
+	{
+		$loginok=false;
+	} 
+}
+if ($loginok)
+{
+	if ($_POST["passwd"] == $_POST["cpasswd"])
+	{
+		if (!isset($users["count"])) {
+			$users["count"] = 1;
+		}
+		else
+		{
+			$users["count"]++;
+		}
+		$id = $users["count"];
+		$users[$id]["id"] = $users["count"];
+		$data["var"] = $_POST["name"]."<br>".$_POST["passwd"];
+		$users[$id]['name'] = $_POST["name"];
+		$users[$id]['passwd'] = sha1($_POST["passwd"]);
+		file_put_contents('users.lst',serialize($users));
 	}
 	else
 	{
-		$users["count"]++;
+		$data["var"] = "Пароли кагбэ не совпадают";
 	}
-	$id = $users["count"];
-	$users[$id]["id"] = $users["count"];
-	$data["var"] = $_POST["name"]."<br>".$_POST["passwd"];
-	$users[$id]['name'] = $_POST["name"];
-	$users[$id]['passwd'] = sha1($_POST["passwd"]);
-	file_put_contents('users.lst',serialize($users));
 }
 else
 {
-	$data["var"] = "Пароли кагбэ не совпадают";
-}
-	
+	$data["var"] = "Этот логин уже занят";
+}		
 return $data;
 }
 
