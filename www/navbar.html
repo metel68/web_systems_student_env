@@ -13,7 +13,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 				{foreach $menu as $lnk => $menuitem}
-              <li {if $lnk==$url}class="active"{/if}><a href="{$lnk}">{$menuitem}</a></li>
+              <li {if $lnk==$url}class="active"{/if}><a href="/{$lnk}">{$menuitem}</a></li>
 				{/foreach}
 			</ul>
           </div><!--/.nav-collapse -->
