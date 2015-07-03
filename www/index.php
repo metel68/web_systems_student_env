@@ -17,7 +17,6 @@ function initTemplate()
 		'var' => 'Страница не найдена',
 		"url" =>  isset($url[0]) ? $url[0] : "home",
 		"menu" => $menu,
-		"logged" => isset($_SESSION["logged"]) ? $_SESSION["logged"] : 0,
 		"name" => isset($_SESSION["activeuser"]) ? $_SESSION["activeuser"] : 'error'
 	);
 	$data = $r->process($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $data);
