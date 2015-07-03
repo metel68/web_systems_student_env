@@ -1,6 +1,7 @@
 <?php
 include_once "account.routes.php";
 include_once "home.routes.php";
+include_once "reg.php";
 
 class Router {
 
