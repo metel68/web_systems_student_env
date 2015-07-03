@@ -14,12 +14,15 @@ function user_list($data)
 }
 function user_add($data)
 {
-	echo "User addition is not implemented";
+	$Fenom = initTemplate();
+	$data["Title"]="Регистрация";
+	$data["var"] = $Fenom -> fetch('reg.html', $data);
 	return $data;
 }
 function user_view($data,$id)
 {
-	echo "User $id";
+	$data['Title'] = 'Список раков';
+	$data['var'] = "User $id";
 	return $data;
 }
   

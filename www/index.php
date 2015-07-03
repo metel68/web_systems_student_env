@@ -15,7 +15,7 @@ function initTemplate()
 	$data = array(
 		'Title' => '404',
 		'var' => 'Страница не найдена',
-		"url" =>  $url[0],
+		"url" =>  isset($url[0]) ? $url[0] : "home",
 		"menu" => $menu
 	);
 	$data = $r->process($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI'], $data);
